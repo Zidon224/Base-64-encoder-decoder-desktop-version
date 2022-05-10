@@ -1,0 +1,90 @@
+body {
+  background-color: coral;
+}
+
+#filename {
+  width: 610px;
+  font-size: 25px;
+  border-radius: 20px;
+  font-family: Noto Sans;
+  box-shadow: 5px 5px 5px rgb(107, 107, 107);
+  padding: 10px 10px;
+}
+#download {
+  background-color: rgb(222, 238, 0);
+  font-size: 25px;
+  border-radius: 20px;
+  font-family: Noto Sans;
+  box-shadow: 5px 5px 5px rgb(107, 107, 107);
+  padding: 10px 10px;
+}
+#download:hover {
+  background-color: rgb(252, 255, 203);
+}
+input[type=file]::-webkit-file-upload-button{
+  background-color: rgb(222, 238, 0);
+  font-size: 25px;
+  border-radius: 20px;
+  font-family: Noto Sans;
+  box-shadow: 5px 5px 5px rgb(107, 107, 107);
+  padding: 10px 10px;
+}
+input:hover {
+  background-color: rgb(252, 255, 203);
+}
+#encode {
+  background-color: rgb(238, 87, 0);
+  font-size: 25px;
+  border-radius: 20px;
+  font-family: Noto Sans;
+  box-shadow: 5px 5px 5px rgb(107, 107, 107);
+  padding: 10px 15px;
+}
+#encode:hover {
+  background-color: rgb(255, 155, 98);
+}
+#decode {
+  background-color: rgb(238, 87, 0);
+  font-size: 25px;
+  border-radius: 20px;
+  font-family: Noto Sans;
+  box-shadow: 5px 5px 5px rgb(107, 107, 107);
+  padding: 10px 15px;
+}
+#decode:hover {
+  background-color: rgb(255, 155, 98);
+}
+#text {
+  box-shadow: 5px 5px 5px rgb(107, 107, 107);
+  font-family: Roboto Mono;
+  font-size: 20px;
+}
+h1 {
+  text-align:center;
+  font-family: PT Sans;
+}
+h2 {
+  font-family: Work Sans;
+}
+#cleartext {
+  background-color: rgb(238, 87, 0);
+  font-size: 25px;
+  border-radius: 20px;
+  font-family: Noto Sans;
+  box-shadow: 5px 5px 5px rgb(107, 107, 107);
+  padding: 10px 15px;
+}
+#cleartext:hover {
+  background-color: rgb(255, 155, 98);
+}
+#clearInput {
+  background-color: rgb(222, 238, 0);
+  font-size: 25px;
+  border-radius: 20px;
+  font-family: Noto Sans;
+  box-shadow: 5px 5px 5px rgb(107, 107, 107);
+  padding: 10px 10px;
+}
+#clearInput:hover {
+  background-color: rgb(252, 255, 203);
+}
