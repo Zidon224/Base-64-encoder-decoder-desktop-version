@@ -6,5 +6,5 @@
 1. Open CMD and type `npm install electron -g`
 2. after installing the electron framework type `npm create-electron-app my-electron-app`
 3. To run the app type `npm run start`
-4. To buil the app into an exe add this script ("package": "electron-forge package") to package.jon and for building an installer add this script ("package": "electron-forge package")
+4. To build the app into an exe add this script ("package": "electron-forge package") to package.json and for building an installer add this script ("package": "electron-forge package")
 5. After choosing the build scripts type `npm run package` for building the portable version of your app or for building the installer type `npm run build-installer`
