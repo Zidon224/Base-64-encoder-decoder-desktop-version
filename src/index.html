@@ -5,47 +5,164 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet"><!--Roboto Mono-->
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet"><!--PT Sans-->
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet"><!--Work Sans-->
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans+Mono:wght@300&display=swap" rel="stylesheet"><!--Spline Sans Mono-->
     <!--fonts-->
     <link href="index.css" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Base 64 encoder decoder (desktop version)</title>
+    <title id="topBar">Base 64 encoder decoder 1.1.0</title>
     <link rel="shortcut icon" type="image/png" href="phcw-vjc_400x400.png">
+    <!--menu bar-->
+    <div class="header">
+      <div class="dropdown" data-dropdown>
+        <button class="link" data-dropdown-button id="menuButtonsPadding">File</button>
+        <div class="dropdown-menu information-grid">
+          <div>
+            <div class="dropdown-links">
+              <a href="#" class="link" id="input"><input type="file" id="input"></a>
+              <br>
+              <a href="#" class="link" id="download">Save</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="dropdown" data-dropdown>
+        <button class="link" data-dropdown-button id="menuButtonsPadding">Options</button>
+        <div class="dropdown-menu information-grid">
+          <div>
+            <div class="dropdown-links">
+              <a href="#" class="link" id="encode">Encode</a>
+              <br>
+              <a href="#" class="link" id="decode">Decode</a>
+              <br>
+              <a href="#" class="link" onclick="clearText()">Clear text area</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dropdown" data-dropdown>
+        <button class="link" data-dropdown-button>Help</button>
+        <div class="dropdown-menu information-grid">
+          <div>
+            <div class="dropdown-links">
+              <a class="link" data-modal-target="#modal" id="aboutToggle">About</a>
+              <div class="modal" id="modal">
+                <div class="modal-header">
+                  <div class="title">About program</div>
+                  <button data-close-button class="close-button">&times;</button>
+                </div>
+                <div class="modal-body">
+                  <P>Base 64 encoder decoder text</P>
+                  <p>Version: 1.1.0</p>
+                  <p>Author: Piano Arts 2007</p>
+                  <p>Improvements: Better UI and the buttons was replaced with the menu bar</p>
+                  <a href="#" id="linkAbout">Source code download</a>
+                  <br>
+                  <br>
+                  <a href="#" id="linkAbout">Use the web version (old)</a>
+                  <br>
+                  <p>Enjoy :D</p>
+                </div>
+                <div id="overlay"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--menu bar effects-->
+    <script>
+      document.addEventListener("click", e => {
+  const isDropdownButton = e.target.matches("[data-dropdown-button]")
+  if (!isDropdownButton && e.target.closest("[data-dropdown]") != null) return
+
+  let currentDropdown
+  if (isDropdownButton) {
+    currentDropdown = e.target.closest("[data-dropdown]")
+    currentDropdown.classList.toggle("active")
+  }
+
+  document.querySelectorAll("[data-dropdown].active").forEach(dropdown => {
+    if (dropdown === currentDropdown) return
+    dropdown.classList.remove("active")
+  })
+})
+    </script>
+    <!--MODAL Popup script-->
+    <script>
+      const openModalButtons = document.querySelectorAll('[data-modal-target]')
+const closeModalButtons = document.querySelectorAll('[data-close-button]')
+const overlay = document.getElementById('overlay')
+
+openModalButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const modal = document.querySelector(button.dataset.modalTarget)
+    openModal(modal)
+  })
+})
+
+overlay.addEventListener('click', () => {
+  const modals = document.querySelectorAll('.modal.active')
+  modals.forEach(modal => {
+    closeModal(modal)
+  })
+})
+
+closeModalButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const modal = button.closest('.modal')
+    closeModal(modal)
+  })
+})
+
+function openModal(modal) {
+  if (modal == null) return
+  modal.classList.add('active')
+  overlay.classList.add('active')
+}
+
+function closeModal(modal) {
+  if (modal == null) return
+  modal.classList.remove('active')
+  overlay.classList.remove('active')
+}
+    </script>
 </head>
 <body>
-    <h1>Base 64 encoder\decooder toll with opening/saving files</h1>
-    <br>
-    <h2>It can encode and decode only base 64</h2>
     <div id="events">
-        <input type="file" id="input"><br>
+
         <br>
         <div id="misc">
-            <button id="download">Download file</button>
         <input placeholder="Specify a name and file format before downloading" id="filename">
-        <button id="clearInput" onclick="clearInput()">Clear Input</button>
         </div>
         <br>
         <div id="encoderdecoder">
-        <button id="encode">Encode</button>
-        <button id="decode">Decode</button>
-        <button id="cleartext" onclick="clearText()">Clear</button><br>
         <br>
-        <textarea name="" id="text" cols="30" rows="10"></textarea>
+        <textarea name="" id="text" cols="103" rows="32"></textarea>
         </div>
     </div>
+    <!--///////-->
+    <!--|--><!--|-->
+    <!--|--><!--|-->
+    <!--|--><!--|-->
+    <!--///principal code of the program-->
+    <!--|--><!--|-->
+    <!--|--><!--|-->
+    <!--|--><!--|-->
     <script>
       let encode = document.querySelector('#encode');
-let decode = document.querySelector('#decode');
-let output = document.querySelector('textarea');
-let input = document.querySelector('input');
-let textarea = document.querySelector('textarea');
-encode.addEventListener('click', () =>{
-   output.value = btoa(output.value) ;
-});
-decode.addEventListener('click', () =>{
-    output.value = atob(output.value) ;
-});
+      let decode = document.querySelector('#decode');
+      let output = document.querySelector('textarea');
+      let input = document.querySelector('input');
+      let textarea = document.querySelector('textarea');
+      encode.addEventListener('click', () =>{
+        output.value = btoa(output.value) ;
+      });
+      decode.addEventListener('click', () =>{
+        output.value = atob(output.value) ;
+      });
 /// input files
 input.addEventListener('change', () => {
     let files = input.files;
@@ -92,7 +209,7 @@ function downloadFile(filename, content) {
     addEventListener('click', e => {
       
       //The value of the file name input box
-      const filename = document.getElementById('filename').value;
+      //const filename = document.getElementById('filename').value;
       
       //The value of what has been input in the textarea
       const content = document.getElementById('text').value;
@@ -106,9 +223,6 @@ function downloadFile(filename, content) {
   };
 function clearText() { //Text eraser text area
   document.getElementById("text").value = "";
-}
-function clearInput() { //Input reaser download file
-  document.getElementById("filename").value = "";
 }
     </script>
 </body>
