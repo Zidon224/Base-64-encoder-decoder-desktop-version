@@ -1,7 +1,7 @@
 {
-  "name": "cool-app",
+  "name": "base-64-encoder-decoder",
   "productName": "Base 64 encoder decoder",
-  "version": "1.0.0",
+  "version": "1.1.2",
   "description": "A simple base 64 encoder decoder build with electron",
   "main": "src/index.js",
   "scripts": {
@@ -13,7 +13,7 @@
     "build-installer": "electron-builder"
   },
   "build": {
-    "appId": "cool-app",
+    "appId": "base-64-encoder-decoder",
     "win": {
       "target": [
         "nsis"
@@ -35,7 +35,7 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "cool_app"
+            "name": "b64-enc-decdr"
           }
         },
         {
@@ -57,6 +57,7 @@
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0",
+    "lodash": "^4.17.21",
     "os-utils": "0.0.14"
   },
   "devDependencies": {
